@@ -1,0 +1,32 @@
+INVITACIÓN ANIMADA · LOS ÚLTIMOS 20'S
+===================================
+
+ARCHIVOS
+  index.html      página interactiva
+  invitacion.png  imagen original sin retoque
+  musica.mp3      MP3 proporcionado por el usuario
+
+VER LOCALMENTE
+  Haz doble clic en index.html para abrirlo en Chrome, Edge, Firefox o Safari.
+  Pulsa Entrar con música para activar audio (o Entrar sin música).
+  Toca la fecha, la hora o la dirección para acceder a Calendar o Maps.
+
+PUBLICAR Y COMPARTIR POR WHATSAPP
+  Publica esta carpeta completa en un hosting de sitios estáticos (p. ej. Netlify,
+  GitHub Pages o Cloudflare Pages). Es indispensable mantener los tres archivos
+  juntos. Una vez publicada, comparte la URL https://... con los invitados.
+
+  Alternativamente, usa el archivo HTML autónomo entregado por separado: ya
+  contiene la imagen y la música y puede funcionar sin archivos auxiliares.
+
+DATOS DE CALENDARIO
+  Sábado 19 diciembre 2026, 17:00 a 18:00, zona America/Mexico_City.
+  18:00 es un fin provisional editable en Google Calendar.
+  Cada invitado debe confirmar Guardar al abrir el enlace del evento.
+
+OBSERVACIONES
+  El navegador normalmente impide reproducir audio con sonido sin antes pulsar
+  un botón. La pantalla inicial resuelve este comportamiento.
+  La apertura de enlaces externos requiere internet.
+  Si vas a publicar la música en internet, verifica que tienes permiso para
+  distribuirla; disponer del archivo por sí solo no implica derechos de difusión.
