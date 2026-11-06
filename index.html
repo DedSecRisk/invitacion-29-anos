@@ -26,12 +26,23 @@ body { margin: 0; min-height: 100svh; background: #071025; }
 .poster { animation:poster-arrive 1s cubic-bezier(.2,.8,.15,1) both; }
 @keyframes poster-arrive { 0%{opacity:.5;transform:translateY(12px) scale(.975)} 55%{opacity:1;transform:translateY(0) scale(1.008)} 100%{opacity:1;transform:none} }
 .fx { position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden; }
-.web-corner { position:absolute;width:23%;height:auto;fill:none;stroke:#fff;stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 2px #e8fcff9a); opacity:0; animation:web-reveal .9s ease .2s both; }
+/* LOOP DE TELARAÑAS (10 s): se dibujan, brillan suavemente, desaparecen y descansan.
+   Las esquinas están desfasadas para evitar demasiado movimiento simultáneo. */
+.web-corner { position:absolute;width:23%;height:auto;fill:none;stroke:#fff;stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 2px #e8fcff9a); opacity:0;animation:web-opacity-loop 10s ease-in-out .25s infinite; }
 .web-corner.top { top:0;left:0; }
-.web-corner.bottom { bottom:0;right:0;transform:rotate(180deg); animation-delay:.45s; }
-.web-corner path { stroke-dasharray:680;stroke-dashoffset:680;animation:web-draw 2.8s ease-out .33s both; }
-@keyframes web-draw { to{stroke-dashoffset:0} }
-@keyframes web-reveal { from{opacity:0}to{opacity:.64} }
+.web-corner.bottom { bottom:0;right:0;transform:rotate(180deg);animation-delay:1.65s; }
+.web-corner path { stroke-dasharray:100;stroke-dashoffset:100;animation:web-draw-loop 10s ease-in-out .25s infinite; }
+.web-corner.bottom path { animation-delay:1.65s; }
+@keyframes web-opacity-loop {
+  0%,4%,44%,100% {opacity:0}
+  11%,30% {opacity:.58}
+  38% {opacity:.32}
+}
+@keyframes web-draw-loop {
+  0%,4% {stroke-dashoffset:100}
+  30%,43% {stroke-dashoffset:0}
+  44%,100% {stroke-dashoffset:100}
+}
 .spider { position:absolute;width:3.3%;min-width:12px;max-width:24px;opacity:0;filter:drop-shadow(0 1px 2px #0009);animation:spider-down 2.4s cubic-bezier(.22,.75,.28,1) .9s both,spider-sway 4s ease-in-out 3.4s infinite alternate; }
 .spider.one {top:7%;right:11%;}
 .spider.two {top:40%;left:15%;width:2.7%;animation-delay:1.45s,3.9s;}
@@ -44,8 +55,16 @@ body { margin: 0; min-height: 100svh; background: #071025; }
 .twinkle::before{width:20%;height:100%;top:0;left:40%}.twinkle::after{width:100%;height:20%;top:40%;left:0}
 .twinkle.a{top:32%;left:9%}.twinkle.b{top:54%;right:6%;animation-delay:1.4s}.twinkle.c{bottom:14%;left:35%;animation-delay:2.7s}.twinkle.d{top:11%;right:15%;animation-delay:3.7s}
 @keyframes twinkle{0%,30%,100%{opacity:0;transform:scale(.45)}37%{opacity:.65;transform:scale(.85)}50%{opacity:.18;transform:scale(.65)}}
-.comic-echo{position:absolute;left:14%;top:6%;width:70%;height:31%;border:2px solid #ffffffd4;border-radius:44% 55% 52% 48%;opacity:0;transform:scale(.88);mix-blend-mode:screen;box-shadow:0 0 16px #ffffff5c;animation:comic-hit 950ms cubic-bezier(.2,.65,.1,1) .58s both;}
-@keyframes comic-hit{0%{opacity:0;transform:scale(.88)}25%{opacity:.55}70%{opacity:.18}100%{opacity:0;transform:scale(1.15)}}
+/* LOOP DE ONOMATOPEYA/IMPACTO CÓMIC (8 s): un pulso breve sobre la explosión
+   blanca del título, seguido por varios segundos de reposo. No modifica el PNG. */
+.comic-echo{position:absolute;left:14%;top:6%;width:70%;height:31%;border:2px solid #ffffffd4;border-radius:44% 55% 52% 48%;opacity:0;transform:scale(.9);mix-blend-mode:screen;box-shadow:0 0 16px #ffffff5c;animation:comic-hit-loop 8s cubic-bezier(.2,.65,.1,1) .65s infinite;}
+@keyframes comic-hit-loop {
+  0%,6% {opacity:0;transform:scale(.90)}
+  13% {opacity:.52;transform:scale(1)}
+  22% {opacity:.18;transform:scale(1.07)}
+  31% {opacity:0;transform:scale(1.14)}
+  32%,100% {opacity:0;transform:scale(.90)}
+}
 /* Zonas invisibles en porcentajes exactos sobre el PNG 1199 x 1312 */
 .hotspot{position:absolute;z-index:4;display:block;border-radius:12px;cursor:pointer;background:transparent;-webkit-tap-highlight-color:rgba(255,240,120,.3);touch-action:manipulation;transition:background .2s,box-shadow .2s,transform .16s;}
 .hotspot:hover,.hotspot:focus-visible{background:rgba(255,255,100,.07);box-shadow:inset 0 0 0 2px #fffbdaae,0 0 18px #ffd83d88;outline:none;}
@@ -65,14 +84,14 @@ body { margin: 0; min-height: 100svh; background: #071025; }
     <section class="poster" aria-label="Invitación al cumpleaños Los últimos 20's">
       <img class="poster-base" src="./invitacion.png" width="1199" height="1312" alt="Los últimos 20's. Acompáñame a festejar mis 29 años. Sábado 19 de diciembre de 2026, 5:00 PM. Dress code heroico: rojo, azul y negro. Dirección: Presidencia 18.">
       <div class="fx" aria-hidden="true">
-<svg class="web-corner top" preserveaspectratio="xMinYMin meet" viewbox="0 0 260 250">
-<path d="M8 7 L251 8 M8 7 L8 246 M8 7 L255 129 M8 7 L134 248 M8 7 L243 244 M53 8 Q53 47 8 56 M92 8 Q91 84 8 98 M144 8 Q147 140 8 143 M194 8 Q189 179 8 192 M10 57 Q59 66 55 9 M8 99 Q105 112 92 10 M8 145 Q154 170 144 10 M9 190 Q205 221 194 8"></path>
+<svg class="web-corner top" preserveAspectRatio="xMinYMin meet" viewBox="0 0 260 250">
+<path pathLength="100" d="M8 7 L251 8 M8 7 L8 246 M8 7 L255 129 M8 7 L134 248 M8 7 L243 244 M53 8 Q53 47 8 56 M92 8 Q91 84 8 98 M144 8 Q147 140 8 143 M194 8 Q189 179 8 192 M10 57 Q59 66 55 9 M8 99 Q105 112 92 10 M8 145 Q154 170 144 10 M9 190 Q205 221 194 8"></path>
 </svg>
-<svg class="web-corner bottom" preserveaspectratio="xMinYMin meet" viewbox="0 0 260 250">
-<path d="M8 7 L251 8 M8 7 L8 246 M8 7 L255 129 M8 7 L134 248 M8 7 L243 244 M53 8 Q53 47 8 56 M92 8 Q91 84 8 98 M144 8 Q147 140 8 143 M194 8 Q189 179 8 192 M10 57 Q59 66 55 9 M8 99 Q105 112 92 10 M8 145 Q154 170 144 10 M9 190 Q205 221 194 8"></path>
+<svg class="web-corner bottom" preserveAspectRatio="xMinYMin meet" viewBox="0 0 260 250">
+<path pathLength="100" d="M8 7 L251 8 M8 7 L8 246 M8 7 L255 129 M8 7 L134 248 M8 7 L243 244 M53 8 Q53 47 8 56 M92 8 Q91 84 8 98 M144 8 Q147 140 8 143 M194 8 Q189 179 8 192 M10 57 Q59 66 55 9 M8 99 Q105 112 92 10 M8 145 Q154 170 144 10 M9 190 Q205 221 194 8"></path>
 </svg>
-<div class="spider one"><svg aria-hidden="true" viewbox="0 0 40 40"><g fill="none" stroke="#081020" stroke-linecap="round" stroke-width="3.3"><path d="M18 17L10 9 4 8M22 17l8-8 6-1M16 20L8 17 3 19M24 20l8-3 5 2M16 24l-9 4-4 6M24 24l9 4 4 6M17 27l-5 8M23 27l5 8"></path></g><ellipse cx="20" cy="18" fill="#050a13" rx="6" ry="6"></ellipse><ellipse cx="20" cy="27" fill="#050a13" rx="8" ry="9"></ellipse></svg></div>
-<div class="spider two"><svg aria-hidden="true" viewbox="0 0 40 40"><g fill="none" stroke="#081020" stroke-linecap="round" stroke-width="3.3"><path d="M18 17L10 9 4 8M22 17l8-8 6-1M16 20L8 17 3 19M24 20l8-3 5 2M16 24l-9 4-4 6M24 24l9 4 4 6M17 27l-5 8M23 27l5 8"></path></g><ellipse cx="20" cy="18" fill="#050a13" rx="6" ry="6"></ellipse><ellipse cx="20" cy="27" fill="#050a13" rx="8" ry="9"></ellipse></svg></div>
+<div class="spider one"><svg aria-hidden="true" viewBox="0 0 40 40"><g fill="none" stroke="#081020" stroke-linecap="round" stroke-width="3.3"><path d="M18 17L10 9 4 8M22 17l8-8 6-1M16 20L8 17 3 19M24 20l8-3 5 2M16 24l-9 4-4 6M24 24l9 4 4 6M17 27l-5 8M23 27l5 8"></path></g><ellipse cx="20" cy="18" fill="#050a13" rx="6" ry="6"></ellipse><ellipse cx="20" cy="27" fill="#050a13" rx="8" ry="9"></ellipse></svg></div>
+<div class="spider two"><svg aria-hidden="true" viewBox="0 0 40 40"><g fill="none" stroke="#081020" stroke-linecap="round" stroke-width="3.3"><path d="M18 17L10 9 4 8M22 17l8-8 6-1M16 20L8 17 3 19M24 20l8-3 5 2M16 24l-9 4-4 6M24 24l9 4 4 6M17 27l-5 8M23 27l5 8"></path></g><ellipse cx="20" cy="18" fill="#050a13" rx="6" ry="6"></ellipse><ellipse cx="20" cy="27" fill="#050a13" rx="8" ry="9"></ellipse></svg></div>
 <span class="twinkle a"></span><span class="twinkle b"></span><span class="twinkle c"></span><span class="twinkle d"></span>
 <div class="comic-echo"></div>
 </div>
