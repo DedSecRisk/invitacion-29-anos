@@ -1,0 +1,18 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [ main ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Copy files
+        with:
+      - name: Deploy
+: ${{ secrets.GITHUB_TOKEN }}
+          cp index.html 404.html _site/
+          publish_dir: ./_site/
+/
+        run: |
