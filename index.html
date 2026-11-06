@@ -76,73 +76,6 @@ body { margin: 0; min-height: 100svh; background: #071025; }
 .audio-toggle{position:absolute;z-index:5;top:49%;right:2.6%;width:44px;height:44px;display:grid;place-items:center;border:1px solid #e5ebffb8;border-radius:50%;background:#081932c4;color:#fff;font-size:20px;box-shadow:0 3px 12px #0007;cursor:pointer;touch-action:manipulation;}
 .audio-toggle[hidden]{display:none;}
 .audio-toggle:hover,.audio-toggle:focus-visible{background:#204b88;outline:2px solid #ffdc52;outline-offset:2px;}
-
-/* PISTAS INTERACTIVAS: secuencia cíclica de 12s sobre los iconos impresos en el PNG.
-   Solo se animan elementos superpuestos. La imagen original no se modifica. */
-.map-radar,.calendar-bounce,.label-sweep {position:absolute;pointer-events:none;}
-.map-radar {left:26.0%;top:80.02%;width:10.6%;aspect-ratio:1;}
-.map-radar::before,.map-radar::after {
-  content:"";position:absolute;inset:1%;border:2px solid #ffe65d;
-  border-radius:50%;opacity:0;transform:scale(.92);
-  box-shadow:0 0 8px #ffeb7b8c,inset 0 0 5px #fff3ba50;
-  animation:map-radar-first 12s ease-out infinite;
-}
-.map-radar::after {border-color:#fff5b5;animation-name:map-radar-second;}
-@keyframes map-radar-first {
-  0%,23%,42%,100%{opacity:0;transform:scale(.92)}
-  27%{opacity:.88;transform:scale(1)}
-  37%{opacity:0;transform:scale(1.33)}
-}
-@keyframes map-radar-second {
-  0%,29%,48%,100%{opacity:0;transform:scale(.92)}
-  33%{opacity:.7;transform:scale(1)}
-  43%{opacity:0;transform:scale(1.31)}
-}
-/* En vez de desplazar el arte ya impreso (y duplicar el icono), rebota
-   un halo alrededor del calendario sin tocar ni tapar el diseño. */
-.calendar-bounce {left:26.2%;top:50.84%;width:10.45%;aspect-ratio:1;}
-.calendar-bounce::before {
-  content:"";position:absolute;inset:2%;border:2px solid #fff5ac;
-  border-radius:50%;box-shadow:0 0 8px #fff6bd,0 0 17px #f4d95996;
-  opacity:0;transform:translateY(0) scale(1);
-  animation:calendar-nudge-loop 12s ease-in-out infinite;
-}
-@keyframes calendar-nudge-loop {
-  0%,48%,68%,100%{opacity:0;transform:translateY(0) scale(.97)}
-  51%{opacity:.9;transform:translateY(-3px) scale(1.035)}
-  54%{opacity:.72;transform:translateY(1px) scale(.99)}
-  57%{opacity:.88;transform:translateY(-2px) scale(1.03)}
-  61%{opacity:.5;transform:translateY(0) scale(1)}
-  67%{opacity:0;transform:translateY(0) scale(1)}
-}
-/* Destellos breves y no intrusivos SOBRE las franjas ya existentes.
-   No añaden texto ni botones y evitan cubrir la mayor parte de las letras. */
-.label-sweep {overflow:hidden;border-radius:14px;clip-path:polygon(0 0,97% 0,100% 88%,2% 100%);}
-.label-sweep.date {left:36.7%;top:51.75%;width:36%;height:7.45%;}
-.label-sweep.address {left:36.7%;top:80.58%;width:35%;height:7.2%;}
-.label-sweep::before {
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(105deg,transparent 31%,#ffeb8900 39%,#ffe45f45 48%,#fff4a782 51%,#ffe45f26 54%,transparent 63%);
-  opacity:0;transform:translateX(-155%);
-  animation:label-glimmer-loop 12s ease-in-out infinite;
-}
-.label-sweep.address::before {animation-delay:1.05s;}
-@keyframes label-glimmer-loop {
-  0%,70%,100%{opacity:0;transform:translateX(-155%)}
-  73%{opacity:.7;transform:translateX(-138%)}
-  83%{opacity:.7;transform:translateX(145%)}
-  86%{opacity:0;transform:translateX(160%)}
-}
-/* Pista adicional al acercar el cursor o al enfocar con teclado. */
-@media(hover:hover){
-  .hotspot:hover{background:rgba(255,245,152,.10);box-shadow:inset 0 0 0 2px #fff9b9,0 0 17px #ffe365b5;}
-}
-.hotspot:focus-visible{outline:3px solid #ffe96d;outline-offset:2px;}
-/* El usuario puede desactivar todo el movimiento en sus preferencias. */
-@media(prefers-reduced-motion:reduce){
-  .map-radar,.calendar-bounce,.label-sweep{display:none!important;}
-}
-
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.web-corner,.spider,.twinkle,.comic-echo{display:none!important}}
   </style>
 </head>
@@ -161,12 +94,11 @@ body { margin: 0; min-height: 100svh; background: #071025; }
 <div class="spider two"><svg aria-hidden="true" viewBox="0 0 40 40"><g fill="none" stroke="#081020" stroke-linecap="round" stroke-width="3.3"><path d="M18 17L10 9 4 8M22 17l8-8 6-1M16 20L8 17 3 19M24 20l8-3 5 2M16 24l-9 4-4 6M24 24l9 4 4 6M17 27l-5 8M23 27l5 8"></path></g><ellipse cx="20" cy="18" fill="#050a13" rx="6" ry="6"></ellipse><ellipse cx="20" cy="27" fill="#050a13" rx="8" ry="9"></ellipse></svg></div>
 <span class="twinkle a"></span><span class="twinkle b"></span><span class="twinkle c"></span><span class="twinkle d"></span>
 <div class="comic-echo"></div>
-<div class="map-radar"></div><div class="calendar-bounce"></div><div class="label-sweep date"></div><div class="label-sweep address"></div>
 </div>
       <a class="hotspot date" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Los%20%C3%BAltimos%2020%27s%20-%20Cumplea%C3%B1os&amp;dates=20261219T170000%2F20261219T180000&amp;ctz=America%2FMexico_City&amp;location=Presidencia%2018%2C%20Zona%20Urbana%20Ejidal%20Estrella%20Culhuacan%2C%20Iztapalapa" target="_blank" rel="noopener noreferrer" aria-label="Agregar cumpleaños a Google Calendar: sábado 19 de diciembre de 2026" title="Agregar cumpleaños a Google Calendar: sábado 19 de diciembre de 2026"></a>
       <a class="hotspot time" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Los%20%C3%BAltimos%2020%27s%20-%20Cumplea%C3%B1os&amp;dates=20261219T170000%2F20261219T180000&amp;ctz=America%2FMexico_City&amp;location=Presidencia%2018%2C%20Zona%20Urbana%20Ejidal%20Estrella%20Culhuacan%2C%20Iztapalapa" target="_blank" rel="noopener noreferrer" aria-label="Agregar cumpleaños a Google Calendar: 5 de la tarde" title="Agregar cumpleaños a Google Calendar: 5 de la tarde"></a>
       <a class="hotspot address" href="https://www.google.com/maps/place/Presidencia+18,+Zona+Urbana+Ejidal+Estrella+Culhuacan,+Iztapalapa,+09809+Ciudad+de+M%C3%A9xico,+CDMX/@19.3308426,-99.1115748,17z/data=!3m1!4b1!4m6!3m5!1s0x85ce01fa507635a7:0x71d7e84c31d91032!8m2!3d19.3308376!4d-99.1089945!16s%2Fg%2F11c5q1nx7c?authuser=0&amp;entry=ttu&amp;g_ep=EgoyMDI2MTEwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Abrir ubicación en Google Maps: Presidencia 18" title="Abrir ubicación en Google Maps: Presidencia 18"></a>
-      <button id="audioToggle" class="audio-toggle" type="button" aria-label="Activar música" aria-pressed="false" title="Activar / silenciar música" hidden>🔇</button>
+      <button id="audioToggle" class="audio-toggle" type="button" aria-label="Activar música" aria-pressed="false" title="Activar / silenciar música" > 🔇</button>
     </section>
   </main>
   <audio id="birthdayMusic" src="./musica.mp3" loop preload="none"></audio>
