@@ -6,97 +6,95 @@
   <meta name="theme-color" content="#071025">
   <meta name="color-scheme" content="dark">
 
-
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:description" content="¡Acompáñame a festejar mis 29 años! Sábado 19 de diciembre de 2026, 5:00 PM.">
   <meta property="og:url" content="https://dedsecrisk.github.io/invitacion-29-anos/">
   <meta property="og:image" content="https://dedsecrisk.github.io/invitacion-29-anos/invitacion.png">
-  <meta name="twitter:image" content="https://dedsecrisk.github.io/invitacion-29-anos/invitacion.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:description" content="¡Acompáñame a festejar mis 29 años! Sábado 19 de diciembre de 2026, 5:00 PM.">
+  <meta name="twitter:image" content="https://dedsecrisk.github.io/invitacion-29-anos/invitacion.png">
   <style>
   :root { color-scheme:dark; font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif; }
   * { box-sizing:border-box; }
   html {scroll-behavior:smooth}
   body {margin:0; min-height:100svh; background:#070f24; color:#f8fbff; overflow-x:hidden;}
-  body::before {content:""; pointer-events:none; position:fixed; inset:-25%; z-index:-1;
      animation:atmosphere 16s ease-in-out infinite alternate; }
+  body::before {content:""; pointer-events:none; position:fixed; inset:-25%; z-index:-1; background:radial-gradient(ellipse at 13% 24%,rgba(206,17,40,.24),transparent 39%),radial-gradient(ellipse at 90% 77%,rgba(13,90,222,.25),transparent 40%);
 @keyframes atmosphere {to{transform:translate(2%,-2%) scale(1.05)}}
-     background:radial-gradient(ellipse at 13% 24%,rgba(206,17,40,.24),transparent 39%),radial-gradient(ellipse at 90% 77%,rgba(13,90,222,.25),transparent 40%);
 .shell {width:min(100% - 24px, 680px); margin:0 auto; padding:20px 0 max(32px,env(safe-area-inset-bottom));}
 .toolbar {display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px;}
-.brand i {height:9px;width:9px;background:#f12b3c;display:inline-block;border-radius:50%;box-shadow:0 0 14px #ed2439;}
-.sound-button:hover {background:#1c2c53; border-color:#86b7ff;}
-.sound-button {border:1px solid #4a5d86; background:#131e3a;color:#fff;border-radius:999px;cursor:pointer; padding:10px 16px;display:inline-flex; gap:8px; align-items:center; font:700 .82rem/1 system-ui,-apple-system,sans-serif; min-height:44px;box-shadow:0 5px 22px #050a1f70;}
 .brand {font-size:.75rem;letter-spacing:.14em;font-weight:850; color:#dbe7ff; text-transform:uppercase; display:flex; gap:7px; align-items:center;}
-.poster-base {display:block;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-drag:none;}
-e {outline:3px solid #ffdf54;outline-offset:3px;}
+  .sound-button:hover {background:#1c2c53; border-color:#86b7ff;}
+  .sound-button {border:1px solid #4a5d86; background:#131e3a;color:#fff;border-radius:999px;cursor:pointer; padding:10px 16px;display:inline-flex; gap:8px; align-items:center; font:700 .82rem/1 system-ui,-apple-system,sans-serif; min-height:44px;box-shadow:0 5px 22px #050a1f70;}
+  .poster-base {display:block;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-drag:none;}
+  .poster {position:relative; isolation:isolate; overflow:hidden; width:100%; aspect-ratio:1199/1312; border-radius:14px; background:#e50914; box-shadow:0 16px 38px #02071396,0 0 0 1px #ffffff35; }
+  .sound-button:focus-visible, .under-links a:focus-visible, .enter-button:focus-visible,.hotspot:focus-visible {outline:3px solid #ffdf54;outline-offset:3px;}
+  .poster.started {animation:poster-arrive 1000ms cubic-bezier(.2,.8,.15,1) both;}
+.fx {position:absolute;inset:0;pointer-events:none;z-index:2; overflow:hidden;}
 @keyframes poster-arrive {0%{opacity:.5;transform:translateY(12px) scale(.972)}55%{opacity:1;transform:translateY(0) scale(1.009)}100%{transform:scale(1)}}
-.poster.started {animation:poster-arrive 1000ms cubic-bezier(.2,.8,.15,1) both;}
-.poster {position:relative; isolation:isolate; overflow:hidden; width:100%; aspect-ratio:1199/1312; border-radius:14px; background:#e50914; box-shadow:0 16px 38px #02071396,0 0 0 1px #ffffff35; }
 .web-corner.top {top:0;left:0;}
 .web-corner.bottom {bottom:0;right:0;transform:rotate(180deg);}
-.fx {position:absolute;inset:0;pointer-events:none;z-index:2; overflow:hidden;}
 .web-corner {position:absolute;width:23%;height:auto;fill:none;stroke:#fff;stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round; filter:drop-shadow(0 0 2px #e8fcff9a);opacity:0;}
 .started .web-corner {animation:web-reveal .9s ease 200ms both;}
 .web-corner path {stroke-dasharray:680; stroke-dashoffset:680;}
 @keyframes web-draw {to{stroke-dashoffset:0}}
-@keyframes web-reveal {from{opacity:0}to{opacity:.64}}
 .spider {position:absolute;width:3.3%;min-width:12px;max-width:24px;opacity:0;filter:drop-shadow(0 1px 2px #0009);}
-.started .web-corner path {animation:web-draw 2.8s ease-out both;}
-  .under-links {display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:17px auto 8px;}
+.under-links {display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:17px auto 8px;}
+@keyframes web-reveal {from{opacity:0}to{opacity:.64}}
   .under-links a:hover {background:#1c2c53; transform:translateY(-2px);}
   .under-links a:focus-visible, .poster-base:focus-visible {outline:3px solid #ffdf54;outline-offset:3px;}
   .under-links a {color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px; padding:10px 14px;border:1px solid #4a5d86;background:#131e3a;border-radius:12px;font:600 .85rem/1 system-ui,-apple-system,sans-serif;transition:background .2s,transform .2s;}
-  .welcome {position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:18px;background:rgba(3,8,25,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
   .welcome.closed {animation:close-intro .55s ease-out forwards;pointer-events:none}
-  .welcome-card h1 {font-size:clamp(1.4rem,5.8vw,2rem);line-height:1.15;margin:0 0 10px;letter-spacing:-.025em;}
+  .welcome {position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:18px;background:rgba(3,8,25,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
   .welcome-card p {font-size:.92rem;line-height:1.5;color:#d0dbf3;margin:0 0 23px;}
-  .welcome-card {width:min(100%,385px);padding:30px 25px;border-radius:22px; background:linear-gradient(150deg,#172b56,#080f2485); border:1px solid #4a5d86;box-shadow:0 20px 50px #0009;}
-  .enter-button {border:1px solid #e50914;background:#e50914;color:#fff;border-radius:14px;padding:14px 20px;font:700 .95rem/1 system-ui,-apple-system,sans-serif;min-height:48px;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;}
+  .welcome-card h1 {font-size:clamp(1.4rem,5.8vw,2rem);line-height:1.15;margin:0 0 10px;letter-spacing:-.025em;}
   .enter-button:hover {background:#ff2d3a; transform:translateY(-2px); box-shadow:0 8px 25px #e5091455;}
+  .enter-button {border:1px solid #e50914;background:#e50914;color:#fff;border-radius:14px;padding:14px 20px;font:700 .95rem/1 system-ui,-apple-system,sans-serif;min-height:48px;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;}
+  .welcome-card {width:min(100%,385px);padding:30px 25px;border-radius:22px; background:linear-gradient(150deg,#172b56,#080f2485); border:1px solid #4a5d86;box-shadow:0 20px 50px #0009;}
+  .enter-button.secondary {background:transparent;border-color:#4a5d86;color:#fff;}
   .enter-button.secondary:hover {border-color:#e50914;background:#e5091433;}
   .enter-button:focus-visible, .under-links a:focus-visible, .hotspot:focus-visible {outline:3px solid #ffdf54;outline-offset:3px;}
-  .enter-button.secondary {background:transparent;border-color:#4a5d86;color:#fff;}
-  .hotspot {position:absolute;width:60%;height:22%;min-width:100px;min-height:44px;border-radius:12px;background:rgba(255,255,255,.06);cursor:pointer; transition:background .2s,transform .2s;}
   .hotspot:hover {background:rgba(255,255,255,.12);transform:scale(1.05);}
+  .hotspot {position:absolute;width:60%;height:22%;min-width:100px;min-height:44px;border-radius:12px;background:rgba(255,255,255,.06);cursor:pointer; transition:background .2s,transform .2s;}
   .hotspot:focus-visible {outline:3px solid #ffdf54;outline-offset:3px;}
   .hotspot.date {top:34%;left:20%;}
   .hotspot.time {top:34%;right:20%;}
   .hotspot.address {bottom:12%;left:50%;transform:translateX(-50%);width:70%;}
   .poster.started .hotspot {pointer-events:none;}
-  </style>
 @media(max-width:880px){.shell{width:calc(100% - 20px);padding:15px 10px}.hotspot{width:80%;min-width:80px}.hotspot.address{width:85%}}
+  </style>
+<body>
 </head>
-<body>
 @media(max-width:440px){.shell{width:calc(100% - 16px);padding-top:10px}.poster{border-radius:9px}.brand{font-size:.65rem}.sound-button{padding:10px 12px}.under-links{gap:8px}.under-links a{font-size:.82rem;padding:8px 10px}}
-<body>
-      <div class="brand"><i aria-hidden="true"></i>Invitación interactiva</div>
-        <span id="soundIcon" aria-hidden="true">🔇</span><span id="soundText">Silenciar música</span>
-      <button type="button" class="sound-button" id="audioToggle" style="display:none;" aria-pressed="false" aria-label="Activar música">
   <main class="shell">
     <header class="toolbar">
+      <div class="brand"><i aria-hidden="true"></i>Invitación interactiva</div>
+        <span id="soundIcon" aria-hidden="true">🔇</span><span id="soundText">Silenciar música</span>
+      </button>
+      <button type="button" class="sound-button" id="audioToggle" style="display:none;" aria-pressed="false" aria-label="Activar música">
     </header>
       <img class="poster-base" src="invitacion.png" width="1199" height="1312"
-        <div class="comic-echo"></div>
       <div class="fx" aria-hidden="true">
+        <div class="comic-echo"></div>
       </div>
     </section>
     <nav class="under-links" aria-label="Enlaces de la invitación">
       <a class="hotspot address" href="https://www.google.com/maps/place/Presidencia+18,+Zona+Urbana+Ejidal+Estrella+Culhuacan,+Iztapalapa,+09809+Ciudad+de+M%C3%A9xico,+CDMX/@19.3308426,-99.1115748,17z/data=!3m1!4b1!4m6!3m5!1s0x85ce01fa507635a7:0x71d7e84c31d91032!8m2!3d19.3308376!4d-99.1089945!16s%2Fg%2F11c5q1nx7c?authuser=0&entry=ttu&g_ep=EgoyMDI2MTEwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Abrir Presidencia 18 en Google Maps"></a>
-    </nav>
       <a href="https://www.google.com/maps/place/Presidencia+18,+Zona+Urbana+Ejidal+Estrella+Culhuacan,+Iztapalapa,+09809+Ciudad+de+M%C3%A9xico,+CDMX/@19.3308426,-99.1115748,17z/data=!3m1!4b1!4m6!3m5!1s0x85ce01fa507635a7:0x71d7e84c31d91032!8m2!3d19.3308376!4d-99.1089945!16s%2Fg%2F11c5q1nx7c?authuser=0&entry=ttu&g_ep=EgoyMDI2MTEwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">📍 Ver ubicación</a>
+    </nav>
   </main>
-  <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle" aria-describedby="welcomeDesc">
     <p class="help">Toca la dirección, la fecha u la hora para abrir Maps o Calendar.<br>En Calendar solo falta confirmar <strong>Guardar</strong>.</p>
-    <div class="welcome-card">
-      <span class="spider-icon" aria-hidden="true">🕷️</span>
       <h1 id="welcomeTitle">¡Estás invitado!</h1>
+      <span class="spider-icon" aria-hidden="true">🕷️</span>
+    <div class="welcome-card">
+  <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle" aria-describedby="welcomeDesc">
       <p id="welcomeDesc">Una celebración con estilo de cómic te espera.</p>
       <p class="help">La música estará disponible cuando se incorpore una canción con licencia adecuada.</p>
     </div>
-"birthdayMusic" src="musica.mp3" loop preload="metadata"></audio>
+  </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <audio id="birthdayMusic" src="musica.mp3" loop preload="metadata"></audio>
   <script>
   (() => {
     const audio = document.getElementById("birthdayMusic");
@@ -105,33 +103,32 @@ e {outline:3px solid #ffdf54;outline-offset:3px;}
     const toggle = document.getElementById("audioToggle");
     const icon = document.getElementById("soundIcon");
     const label = document.getElementById("soundText");
+    let entered = false;
     const toast = document.getElementById("toast");
     let toastTimeout;
-    audio.volume = 0.55;
     function notify(message) {
-       toast.textContent = message;
-       clearTimeout(toastTimeout);
+    audio.volume = 0.55;
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimeout);
     }
+      toastTimeout = setTimeout(() => toast.classList.remove("show"), 3500);
     function updateButton() {
       const sounding = !audio.muted && !audio.paused;
       toggle.setAttribute("aria-pressed", String(sounding));
       toggle.setAttribute("aria-label", sounding ? "Silenciar música" : "Activar música");
       icon.textContent = sounding ? "🔊" : "🔇";
-    }
       label.textContent = sounding ? "Silenciar música" : "Activar música"; 
-    function playWithSound() {
-      audio.muted = false;
-      // Initiated from a user click: compatible with mobile autoplay policies.
-      const p = audio.play();
     }
-      } else updateButton();
     function playWithSound() {
       audio.muted = false;
       const p = audio.play();
       if (p && typeof p.catch === "function") {
-      } else updateButton();
-    }
+      } else {
         p.then(updateButton).catch(() => {audio.muted = true; updateButton(); notify("Tu navegador bloqueó el audio. Toca "Activar música" para intentarlo.");});
+        updateButton();
+    }
+      }
     function enter(withMusic) {
       if (entered) return;
       entered = true;
@@ -145,16 +142,16 @@ e {outline:3px solid #ffdf54;outline-offset:3px;}
     document.getElementById("enterSilent").addEventListener("click", () => enter(false));
     toggle.addEventListener("click", () => {
       if (!entered) {enter(true);return;}
+      if (!audio.muted && !audio.paused) {audio.muted = true; updateButton();}
       else playWithSound();
     });
     audio.addEventListener("play",updateButton);
     audio.addEventListener("pause",updateButton);
-      if (!audio.muted && !audio.paused) {audio.muted = true; updateButton();}
     audio.addEventListener("volumechange",updateButton);
     document.addEventListener("visibilitychange", () => {
       // No forced replay; preserve user preference when moving between apps.
-    });
       updateButton();
+    });
     updateButton();
   })();
   </script>
