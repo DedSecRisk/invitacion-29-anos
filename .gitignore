@@ -25,7 +25,3 @@ yarn-error.log*
 
 # Zip packages (generados)
 *.zip
-
-# Audio files (solo si no se quiere subir al repo)
-# Borrar esta línea si la música está autorizada para publicar
-*.mp3
